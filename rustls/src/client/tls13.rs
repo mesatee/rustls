@@ -44,6 +44,8 @@ use ring::constant_time;
 
 use crate::sign::{CertifiedKey, Signer};
 use std::sync::Arc;
+#[cfg(target_vendor = "teaclave")]
+use std::untrusted::time::SystemTimeEx;
 
 // Extensions we expect in plaintext in the ServerHello.
 static ALLOWED_PLAINTEXT_EXTS: &[ExtensionType] = &[

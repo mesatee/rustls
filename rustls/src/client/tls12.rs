@@ -34,6 +34,8 @@ use ring::agreement::PublicKey;
 use ring::constant_time;
 
 use std::sync::Arc;
+#[cfg(target_vendor = "teaclave")]
+use std::untrusted::time::SystemTimeEx;
 
 pub(super) use server_hello::CompleteServerHelloHandling;
 

@@ -26,6 +26,8 @@ use super::server_conn::{ProducesTickets, ServerConfig, ServerConnectionData};
 use ring::constant_time;
 
 use std::sync::Arc;
+#[cfg(target_vendor = "teaclave")]
+use std::untrusted::time::SystemTimeEx;
 
 pub(super) use client_hello::CompleteClientHelloHandling;
 
