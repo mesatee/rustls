@@ -2,6 +2,8 @@ use webpki;
 use sct;
 use std;
 use std::sync::Arc;
+#[cfg(target_vendor = "teaclave")]
+use std::untrusted::time::SystemTimeEx;
 
 use crate::key::Certificate;
 use crate::msgs::handshake::DigitallySignedStruct;

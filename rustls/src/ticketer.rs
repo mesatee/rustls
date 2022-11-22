@@ -5,6 +5,8 @@ use crate::rand;
 use std::mem;
 use std::sync::{Mutex, Arc};
 use std::time;
+#[cfg(target_vendor = "teaclave")]
+use std::untrusted::time::SystemTimeEx;
 use ring::aead;
 
 /// The timebase for expiring and rolling tickets and ticketing

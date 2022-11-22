@@ -1,5 +1,8 @@
 use std::env;
+#[cfg(not(target_vendor = "teaclave"))]
 use std::fs::{File, OpenOptions};
+#[cfg(target_vendor = "teaclave")]
+use std::untrusted::fs::{File, OpenOptions};
 use std::path::Path;
 use std::io;
 use std::io::Write;
