@@ -5,6 +5,8 @@ use ring::aead;
 use std::mem;
 use std::sync::{Arc, Mutex};
 use std::time;
+#[cfg(target_vendor = "teaclave")]
+use std::untrusted::time::SystemTimeEx;
 
 /// The timebase for expiring and rolling tickets and ticketing
 /// keys.  This is UNIX wall time in seconds.

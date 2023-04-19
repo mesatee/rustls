@@ -1,9 +1,13 @@
 use std::env;
+#[cfg(target_vendor = "teaclave")]
+use std::untrusted::fs::{File, OpenOptions};
+#[cfg(not(target_vendor = "teaclave"))]
 use std::fs::{File, OpenOptions};
 use std::io;
 use std::io::Write;
 use std::path::Path;
 use std::sync::Mutex;
+
 
 #[cfg(feature = "logging")]
 use crate::log::warn;

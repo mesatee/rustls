@@ -12,6 +12,8 @@ use crate::log::{debug, trace, warn};
 use crate::msgs::enums::SignatureScheme;
 use crate::msgs::handshake::DigitallySignedStruct;
 use crate::msgs::handshake::SCTList;
+#[cfg(target_vendor = "teaclave")]
+use std::untrusted::time::SystemTimeEx;
 
 type SignatureAlgorithms = &'static [&'static webpki::SignatureAlgorithm];
 
